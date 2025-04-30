@@ -29,7 +29,7 @@ export const POST: RequestHandler = async ({ request }) => {
         console.log(tgData);
         if (tgData.message && tgData.message.new_chat_member) {
             const chatId = tgData.message.chat.id
-            const caption = "🤚 Welcome to the group! 🤚" + tgData.message.from.username;
+            const caption = "🤚 Welcome to the group! 🤚" + tgData.message.from.first_name;
             let inlineKeyboard = JSON.stringify({
                 inline_keyboard: [
                     [
