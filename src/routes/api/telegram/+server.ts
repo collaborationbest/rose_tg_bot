@@ -27,6 +27,71 @@ export const POST: RequestHandler = async ({ request }) => {
         // Extract message and chat ID
         // const chatId = tgData.message.chat.id;
         console.log(tgData);
+        if (tgData.message && tgData.message.new_chat_member) {
+            const chatId = tgData.message.chat.id
+            const caption = "🤚 Welcome to the group! 🤚" + tgData.message.from.username;
+            let inlineKeyboard = JSON.stringify({
+                inline_keyboard: [
+                    [
+                        {
+                            text: 'посмотреть пост',
+                            url: "https://t.me/my_com555bot",
+                        }
+
+                    ],
+                    [
+                        {
+                            text: 'просмотреть пост и поставить реакцию',
+                            url: "https://t.me/my_com555bot",
+                        }
+                    ],
+                    [
+                        {
+                            text: 'посетить сайт',
+                            url: "https://t.me/my_com555bot",
+                        }
+                    ],
+                    [
+                        {
+                            text: 'просмотреть бота',
+                            url: "https://t.me/my_com555bot",
+                        }
+                    ],
+                    [
+                        {
+                            text: 'войти в приложение',
+                            url: "https://t.me/my_com555bot",
+                        }
+                    ],
+                ]
+            });
+
+            let query = {
+                chat_id: chatId,
+                photo: `https://birthday-bot-tg-svelte.vercel.app/birthday.jpg`,
+                parse_mode: 'HTML',
+                reply_markup: inlineKeyboard,
+                caption: caption
+            };
+
+            // Sending a reply back to the chat
+            const response = await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendPhoto`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(query)
+            });
+
+            // Check if the response is ok
+            if (!response.ok) {
+                console.error('Error sending message:', await response.text());
+                return json({ status: false }, { status: 500 });
+            }
+
+            return json({ status: true });
+
+        }
         return json({ status: true });
         // const text = tgData.message.text;
         // const messageId = tgData.message.message_id; // Get the message ID for replying
