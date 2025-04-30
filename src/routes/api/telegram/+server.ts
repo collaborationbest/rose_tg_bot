@@ -10,12 +10,12 @@ export const POST: RequestHandler = async ({ request }) => {
         if (tgData.callback_query) {
             const callbackQuery = tgData.callback_query;
             const data = callbackQuery.data; // This will be 'teacher' or 'student'
-
+            console.log(data);
             // Handle the callback data
             if (data === 'confirm_messaging') {
                 // Logic for when the teacher button is clicked
-                const chatId = tgData.message.chat.id;
-                const userId = tgData.message.new_chat_member.id;
+                const chatId = callbackQuery.message.chat.id;
+                const userId = callbackQuery.from.id;
 
                 // Restrict user permissions
                 await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/restrictChatMember`, {
