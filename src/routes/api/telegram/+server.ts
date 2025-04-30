@@ -94,10 +94,13 @@ export const POST: RequestHandler = async ({ request }) => {
                             url: "https://t.me/my_com555bot",
                         }
                     ],
-                    {
-                        text: 'Я не БОТ',
-                        callback_data: "confirm_messaging",
-                    }
+                    [
+                        {
+                            text: 'Я не БОТ',
+                            callback_data: "confirm_messaging",
+                        }
+                    ]
+
                 ]
             });
 
