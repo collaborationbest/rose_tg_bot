@@ -65,38 +65,7 @@ export const POST: RequestHandler = async ({ request }) => {
                 inline_keyboard: [
                     [
                         {
-                            text: 'посмотреть пост',
-                            url: "https://t.me/my_com555bot",
-                        }
-
-                    ],
-                    [
-                        {
-                            text: 'просмотреть пост и поставить реакцию',
-                            url: "https://t.me/my_com555bot",
-                        }
-                    ],
-                    [
-                        {
-                            text: 'посетить сайт',
-                            url: "https://t.me/my_com555bot",
-                        }
-                    ],
-                    [
-                        {
-                            text: 'просмотреть бота',
-                            url: "https://t.me/my_com555bot",
-                        }
-                    ],
-                    [
-                        {
-                            text: 'войти в приложение',
-                            url: "https://t.me/my_com555bot",
-                        }
-                    ],
-                    [
-                        {
-                            text: 'Я не БОТ',
+                            text: 'I am not a BOT',
                             callback_data: "confirm_messaging",
                         }
                     ]
