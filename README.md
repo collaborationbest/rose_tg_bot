@@ -18,7 +18,7 @@ or
 ```bash
 yarn install
 ```
-# Then start the server and open the app in a new browser tab
+Then start the server and open the app in a new browser tab
 ```bash
 npm run dev -- --open
 ```
@@ -31,5 +31,5 @@ To create a production version of your app:
 npm run build
 ```
 
-## After deploy project, you can set webhook for telegram bot.
-## Then, you can add the bot in your group with admin role.
+After deploy project, you can set webhook for telegram bot.
+Then, you can add the bot in your group with admin role.
