@@ -12,11 +12,14 @@ git clone https://github.com/collaborationbest/rose_tg_bot.git
 
 ```bash
 npm install | npm i
-
+```
 or
 
+```bash
 yarn install
-# or start the server and open the app in a new browser tab
+```
+# Then start the server and open the app in a new browser tab
+```bash
 npm run dev -- --open
 ```
 
